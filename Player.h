@@ -11,6 +11,7 @@ public:
 
 	int* GetHealth();
 	int* GetTeam();
+	bool* GetDormant();
 	Vector3* GetOrigin();
 	Vector3* GetViewOffset();
 	Vector3* GetBonePos(int boneID);

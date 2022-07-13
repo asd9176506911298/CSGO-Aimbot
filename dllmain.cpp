@@ -1,9 +1,16 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include <Windows.h>
+#include <iostream>
 #include "Hack.h"
+
 
 DWORD WINAPI HackThread(HMODULE hModule)
 {
+    #ifdef _DEBUG
+    AllocConsole();
+    FILE* f;
+    freopen_s(&f, "CONOUT$", "w", stdout);
+    #endif
 
     while (!GetAsyncKeyState(VK_END))
     {
@@ -11,6 +18,10 @@ DWORD WINAPI HackThread(HMODULE hModule)
         Sleep(1);
     }
 
+    #ifdef _DEBUG
+    fclose(f);
+    FreeConsole();
+    #endif
     FreeLibraryAndExitThread(hModule, 0);
     return 0;
 }

@@ -47,3 +47,8 @@ int* Player::GetTeam()
 {
 	return (int*)(*(uintptr_t*)this + hazedumper::netvars::m_iTeamNum);
 }
+
+bool* Player::GetDormant()
+{
+	return (bool*)(*(uintptr_t*)this + hazedumper::signatures::m_bDormant);
+}

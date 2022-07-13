@@ -29,6 +29,11 @@ Player* GetClosestEnemy()
 			continue;
 		}
 
+		if (*currentPlayer->GetDormant())
+		{
+			continue;
+		}
+		
 		float currentDistance = localPlayer->GetDistance(currentPlayer->GetOrigin());
 
 		if (currentDistance < closestDistance)
